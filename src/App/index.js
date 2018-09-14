@@ -1,20 +1,41 @@
-import React, { Component } from 'react';
-import './index.css';
+import React, { Component } from 'react'
+import { Container } from 'semantic-ui-react'
+import CardNavbar from '../Components/CardNavbar'
+import CardButton from '../Components/CardAddTicketButton'
+import Cards from '../Components/Cards'
+import CardDetail from '../Components/CardDetail'
+import CardEditLog from '../Components/CardEditLog'
+import CardAddTicket from '../Components/CardAddTicket'
+import DeleteConfirm from '../Components/DeleteConfirm'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+const styles = {
+    navbar : {
+        width : '600px'
+    }
 }
 
-export default App;
+class App extends Component {
+    render() {
+        return (
+            <div className="App">
+                <Container style={styles.navbar}>
+                    <div><CardNavbar/></div>
+                    <br/>
+                    <div><CardButton/></div>
+                    <br/>
+                    <div><Cards/></div>
+                    <br/>
+                    <div><CardDetail/></div>
+                    <br/>
+                    <div><CardEditLog/></div>
+                    <br/>
+                    <div><CardAddTicket/></div>
+                    <br/>
+                    <div><DeleteConfirm/></div>
+                </Container>
+            </div>
+        )
+    }
+}
+
+export default App
