@@ -2,6 +2,7 @@ import React from 'react'
 import { Menu, Dropdown } from 'semantic-ui-react'
 
 const options = [
+    { key: 'All', text: 'All', value: 'All' },
     { key: 'Open', text: 'Open', value: 'Open' },
     { key: 'Active', text: 'Active', value: 'Active' },
     { key: 'Failed', text: 'Failed', value: 'Failed' },
