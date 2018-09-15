@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Button, CardContent, Dropdown } from 'semantic-ui-react'
+import { Card, Button, Dropdown } from 'semantic-ui-react'
 
 const options = [
     { key: 'Open', text: 'Open', value: 'Open' },

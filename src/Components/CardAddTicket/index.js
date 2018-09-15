@@ -19,4 +19,7 @@ const CardAddTicket = () => (
     </Card>
 )
 
+
+
+
 export default CardAddTicket

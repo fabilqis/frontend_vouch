@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { Container } from 'semantic-ui-react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+
 import CardNavbar from '../Components/CardNavbar'
-import CardButton from '../Components/CardAddTicketButton'
-import Cards from '../Components/Cards'
-import CardDetail from '../Components/CardDetail'
-import CardEditLog from '../Components/CardEditLog'
+import Home from '../Home'
 import CardAddTicket from '../Components/CardAddTicket'
-import DeleteConfirm from '../Components/DeleteConfirm'
+import CardDetail from '../Components/CardDetail'
+
 
 const styles = {
     navbar : {
@@ -17,23 +17,20 @@ const styles = {
 class App extends Component {
     render() {
         return (
-            <div className="App">
-                <Container style={styles.navbar}>
-                    <div><CardNavbar/></div>
-                    <br/>
-                    <div><CardButton/></div>
-                    <br/>
-                    <div><Cards/></div>
-                    <br/>
-                    <div><CardDetail/></div>
-                    <br/>
-                    <div><CardEditLog/></div>
-                    <br/>
-                    <div><CardAddTicket/></div>
-                    <br/>
-                    <div><DeleteConfirm/></div>
-                </Container>
-            </div>
+            <Router>
+                <div className="App">
+                    <Container style={styles.navbar}>
+                        <div><CardNavbar/></div>
+                        <div>
+                            <Switch>
+                                <Route exact path="/" component={Home}/>
+                                <Route path="/create" component={CardAddTicket}/>
+                                <Route exact path="/detail:id" component={CardDetail}/>
+                            </Switch>
+                        </div>
+                    </Container>
+                </div>
+            </Router>
         )
     }
 }
