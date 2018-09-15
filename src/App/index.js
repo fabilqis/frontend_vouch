@@ -8,6 +8,7 @@ import CardNavbar from '../Components/CardNavbar'
 import Home from '../Home'
 import CardAddTicket from '../Components/CardAddTicket'
 import CardDetail from '../Components/CardDetail'
+import CardEditLog from '../Components/CardEditLog'
 
 const initialState = {
     ticket : {
@@ -97,7 +98,8 @@ class App extends Component {
                                 <Switch>
                                     <Route exact path="/" component={Home}/>
                                     <Route path="/create" component={CardAddTicket}/>
-                                    <Route exact path="/detail:id" component={CardDetail}/>
+                                    <Route path="/detail:id" component={CardDetail}/>
+                                    <Route path="/editlogs" component={CardEditLog}/>
                                 </Switch>
                             </div>
                         </Container>

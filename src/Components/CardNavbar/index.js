@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Menu, Dropdown } from 'semantic-ui-react'
 
 const options = [
@@ -14,7 +15,7 @@ class CardNavbar extends React.Component{
         return(
             <Menu borderless>
                 <Menu.Item header>
-                    Ticket App
+                    <Link to="/">Ticket App</Link>
                 </Menu.Item>
                 <Menu.Menu position='right'>
                     <Menu.Item>

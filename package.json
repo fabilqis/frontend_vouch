@@ -14,7 +14,8 @@
     "react-scripts": "1.1.5",
     "redux": "^4.0.0",
     "semantic-ui-css": "^2.3.3",
-    "semantic-ui-react": "^0.82.5"
+    "semantic-ui-react": "^0.82.5",
+    "sweetalert-react": "^0.4.11"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,4 +1,8 @@
 import React from 'react'
+// import propTypes from 'prop-types'
+// import { connect } from 'react-redux'
+// import axios from 'axios'
+import { Link } from 'react-router-dom'
 import { Card, Button, Dropdown } from 'semantic-ui-react'
 
 const options = [
@@ -20,7 +24,7 @@ const CardDetail = () => (
         <Card.Content textAlign='center' header="Ticket 1"/>
         <Card.Content description={description}/>
         <Card.Content extra>
-            <Button fluid color='blue'> Edit Log </Button>
+            <Link to="/editlogs"><Button fluid color='blue'> Edit Log </Button></Link> 
             <Dropdown fluid placeholder='Status' search selection options={options}/>
             <Button fluid color='vk'> Save </Button>
         </Card.Content>
