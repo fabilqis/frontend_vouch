@@ -53,7 +53,7 @@ class CardDelete extends React.Component{
         request
         .post('/tickets/delete', payload)
         .then(response => {
-            window.alert('Edit success')
+            window.alert('Delete success')
             this.setState({success : true})
             console.log("Message :", response)
         })
@@ -66,7 +66,7 @@ class CardDelete extends React.Component{
     render(){
         if (this.state.success){
             return (
-                <Redirect to={'/ '}/>
+                <Redirect to={'/'}/>
             )
         } else {
             console.log('Isi card :', this.props.deleteCard)
