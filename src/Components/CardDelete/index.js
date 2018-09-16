@@ -3,7 +3,7 @@ import axios from 'axios'
 import propTypes from 'prop-types'
 import { BrowserRouter as Redirect} from 'react-router-dom'
 import { connect } from 'react-redux'
-import { Card, Button, Form, TextArea, Input} from 'semantic-ui-react'
+import { Card, Button, Form, Input} from 'semantic-ui-react'
 
 const request = axios.create({
     baseURL : 'https://backendvouch.herokuapp.com/' || 'http://localhost:3000',
