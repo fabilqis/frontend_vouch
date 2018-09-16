@@ -27,7 +27,7 @@ class CardDelete extends React.Component{
       handleSubmit = async event => {
         event.preventDefault();
     
-        const URL = "http://backendvouch.herokuapp.com/tickets/delete";
+        const URL = "https://backendvouch.herokuapp.com/tickets/delete";
         const data = {
           _id: this.state._id
         };

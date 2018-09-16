@@ -7,7 +7,7 @@ import { Card, Button, Form, TextArea, Input} from 'semantic-ui-react'
 
 
 const request = axios.create({
-    baseURL: 'http://backendvouch.herokuapp.com/' || 'http://localhost:3000',
+    baseURL: 'https://backendvouch.herokuapp.com/' || 'http://localhost:3000',
     timeout: 50000,
     headers: { Authorization: '' }
 })
