@@ -16,7 +16,7 @@ class Home extends React.Component{
     addItem(item){
         this.setState(prevState => {
             return {
-                ticket : prevState.items.concat(item)
+                details : prevState.items.concat(item)
             }
         })
     }
@@ -31,8 +31,8 @@ class Home extends React.Component{
                 data.forEach(item => {
                     this.setState(prevState => {
                         return {
-                            ticket : prevState.ticket.concat({
-                                id: item.id,
+                            details : prevState.details.concat({
+                                _id: item._id,
                                 name : item.name,
                                 status : item.status,
                                 logs : item.logs
@@ -49,11 +49,11 @@ class Home extends React.Component{
     constructor(props) {
         super(props)
         this.state = {
-            ticket : [],
+            details : [],
             name: this.props.name,
             status: this.props.status,
             logs : this.props.logs,
-            id: this.props.id
+            _id: this.props._id
         }
     }
 
@@ -68,9 +68,10 @@ class Home extends React.Component{
         }
     }
     render(){
-        const theCard = this.state.ticket.map((item) => {
+        const theCard = this.state.details.map((item) => {
             return (
-                <Cards key={item.id}
+                <Cards key={item._id}
+                    id ={item._id}
                     name= {item.name} 
                     status= {item.status} 
                     logs= {item.logs} /> 
@@ -90,7 +91,7 @@ const mapStateToProps = state => {
         name : state.name,
         status : state.status,
         logs : state.logs,
-        id: state.id
+        _id: state.id
     }
 }
 

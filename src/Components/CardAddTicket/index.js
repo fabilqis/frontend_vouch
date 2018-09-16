@@ -3,44 +3,43 @@ import axios from 'axios'
 import propTypes from 'prop-types'
 import { BrowserRouter as Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { Card, Button, Form, TextArea, Input, Select} from 'semantic-ui-react'
+import { Card, Button, Form, TextArea, Input} from 'semantic-ui-react'
 
-const mapStateToProps = state => {
-    return {
-        addCard : state.ticket.addCard
-    }
-}
 
 const request = axios.create({
     baseURL: 'http://backendvouch.herokuapp.com/' || 'http://localhost:3000',
-    timeout: 10000,
+    timeout: 50000,
     headers: { Authorization: '' }
 })
 
-const options = [
-    { key: 'Open', text: 'Open', value: 'Open' },
-]
+const mapStateToProps = state => {
+    return {
+        addCard : state.details.addCard
+    }
+}
+
+// const options = [
+//     { key: 'Open', text: 'Open', value: 'Open' },
+// ]
 
 class CardAddTicket extends React.Component{
-    constructor(props){
-        super(props)
-        this.state = {
-            success : false,
-            id : 0,
-            name : '',
-            status : '',
-            logs : '',
-            redirectToReferrer : false
-        }
-    }
-
     static get propTypes(){
         return{
             children : propTypes.any,
             dispatch : propTypes.any,
             addCard : propTypes.object
+
         }
     }
+
+    state = {
+            success : false,
+            name : '',
+            status : '',
+            logs : '',
+            redirectToReferrer : false
+        }
+    
 
     handleChange = event => {
         this.setState({ [event.target.name]: event.target.value })
@@ -48,13 +47,20 @@ class CardAddTicket extends React.Component{
 
     handleSubmit = event => {
         event.preventDefault()
+
         const payload = {
-            id : this.state.id,
             name : this.state.name,
             status : this.state.status,
             logs : this.state.logs
         }
-        console.log(this.state)
+        this.props.dispatch({
+            type: 'ADD_CARD',
+            payload : {
+                name : this.state.name,
+                status : this.state.status,
+                logs : this.state.logs
+            }
+        })
         
 
         request
@@ -65,9 +71,10 @@ class CardAddTicket extends React.Component{
             console.log("Message :", response)
         })
         .catch(error => {
-            window.alert(`${error.response.data.message}`);    
+            window.alert("Error");    
             console.log(error)
         })
+        console.log('teeext: ',payload)
     }
 
 
@@ -84,23 +91,23 @@ class CardAddTicket extends React.Component{
                     <Card.Content>
                         <Form onSubmit={this.handleSubmit}>
                             <Form.Field control={Input} 
-                            label='Id' 
-                            placeholder='Ticket Id.'
-                             id='id' 
-                            onChange={this.handleChange}/>
-
-                            <Form.Field control={Input} 
                             label='Name' 
                             placeholder='Ticket Name' 
                             id='name' 
                             onChange={this.handleChange}/>
 
-                            <Form.Field control={Select} 
+                            <Form.Field control={Input} 
+                            label='Status' 
+                            placeholder='Ticket Status' 
+                            id='status' 
+                            onChange={this.handleChange}/>
+
+                            {/* <Form.Field control={Select} 
                             label='Status' 
                             options={options} 
                             placeholder='Status' 
                             id='status' 
-                            onChange={this.handleChange} />
+                            onChange={this.handleChange} /> */}
 
                             <Form.Field control={TextArea} 
                             label='Logs' 
@@ -110,7 +117,7 @@ class CardAddTicket extends React.Component{
 
                             <Form.Field control={Button} 
                             color='vk'
-                            onClick={this.props.handleSubmit}> Save </Form.Field>
+                            > Save </Form.Field>
                         </Form>
                     </Card.Content>
                 </Card>
@@ -118,5 +125,6 @@ class CardAddTicket extends React.Component{
         }
     }
 }
+
 
 export default connect(mapStateToProps)(CardAddTicket)
