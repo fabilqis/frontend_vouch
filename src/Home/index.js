@@ -88,10 +88,10 @@ class Home extends React.Component{
 
 const mapStateToProps = state => {
     return {
-        name : state.name,
-        status : state.status,
-        logs : state.logs,
-        _id: state.id
+        name : state.details.name,
+        status : state.details.status,
+        logs : state.details.logs,
+        _id: state.details._id
     }
 }
 

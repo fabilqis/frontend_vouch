@@ -73,8 +73,7 @@ class CardAddTicket extends React.Component{
         .catch(error => {
             window.alert("Error");    
             console.log(error)
-        })
-        console.log('teeext: ',payload)
+        }) 
     }
 
 
@@ -84,23 +83,23 @@ class CardAddTicket extends React.Component{
                 <Redirect to={'/'}/>
             )
         } else {
-            // console.log('Isi card :', this.props.addCard)
+            console.log('Isi card :', this.props.addCard)
             return(
                 <Card centered >
                     <Card.Content header="Add Ticket"/>
                     <Card.Content>
-                        <Form onSubmit={this.handleSubmit}>
+                        <Form onSubmit={this.handleSubmit.bind(this)}>
                             <Form.Field control={Input} 
                             label='Name' 
                             placeholder='Ticket Name' 
                             id='name' 
-                            onChange={this.handleChange}/>
+                            onChange={this.handleChange.bind(this)}/>
 
                             <Form.Field control={Input} 
                             label='Status' 
                             placeholder='Ticket Status' 
                             id='status' 
-                            onChange={this.handleChange}/>
+                            onChange={this.handleChange.bind(this)}/>
 
                             {/* <Form.Field control={Select} 
                             label='Status' 
@@ -113,11 +112,11 @@ class CardAddTicket extends React.Component{
                             label='Logs' 
                             placeholder='Put text here...' 
                             id='logs' 
-                            onChange={this.handleChange}/>
+                            onChange={this.handleChange.bind(this)}/>
 
                             <Form.Field control={Button} 
                             color='vk'
-                            > Save </Form.Field>
+                            onSubmit={this.props.handleSubmit}> Save </Form.Field>
                         </Form>
                     </Card.Content>
                 </Card>

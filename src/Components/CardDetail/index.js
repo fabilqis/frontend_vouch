@@ -8,10 +8,10 @@ import { Card, Button } from 'semantic-ui-react'
 
 const mapStateToProps = state => {
     return {
-        _id: state.ticket._id,
-        name: state.ticket.name,
-        status: state.ticket.status,
-        logs:state.ticket.logs
+        _id: state.details._id,
+        name: state.details.name,
+        status: state.details.status,
+        logs:state.details.logs
         
     }
 }
