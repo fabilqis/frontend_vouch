@@ -17,7 +17,7 @@ class Cards extends React.Component{
                 </Card.Content>
                 <Card.Content extra>
                     <div className="ui two buttons">
-                        <Button color='teal' primary><Link style={{ color:'white'}} to='/detail:id'>Detail </Link></Button>
+                        <Button color='teal' primary><Link style={{ color:'white'}} to='/edit'> Edit </Link></Button>
                         <Button color='red'> <Link style={{ color:'white'}} to='/delete'> Delete</Link></Button>
                     </div>
                 </Card.Content>

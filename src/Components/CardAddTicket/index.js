@@ -3,12 +3,12 @@ import axios from 'axios'
 import propTypes from 'prop-types'
 import { BrowserRouter as Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { Card, Button, Form, TextArea, Input} from 'semantic-ui-react'
+import { Card, Button, Form, TextArea, Input, Select} from 'semantic-ui-react'
 
 
 const request = axios.create({
     baseURL: 'https://backendvouch.herokuapp.com/' || 'http://localhost:3000',
-    timeout: 50000,
+    timeout: 10000,
     headers: { Authorization: '' }
 })
 
@@ -18,9 +18,9 @@ const mapStateToProps = state => {
     }
 }
 
-// const options = [
-//     { key: 'Open', text: 'Open', value: 'Open' },
-// ]
+const options = [
+    { key: 'Open', text: 'Open', value: 'Open' },
+]
 
 class CardAddTicket extends React.Component{
     static get propTypes(){
@@ -80,7 +80,7 @@ class CardAddTicket extends React.Component{
     render(){
         if (this.state.success){
             return (
-                <Redirect to={'/'}/>
+                <Redirect to={'/ '}/>
             )
         } else {
             console.log('Isi card :', this.props.addCard)
@@ -96,19 +96,13 @@ class CardAddTicket extends React.Component{
                             id='name' 
                             onChange={this.handleChange.bind(this)}/>
 
-                            <Form.Field control={Input} 
+                            <Form.Field control={Select} 
                             label='Status' 
+                            options = {options}
                             placeholder='Ticket Status' 
                             name = 'status'
                             id='status' 
                             onChange={this.handleChange.bind(this)}/>
-
-                            {/* <Form.Field control={Select} 
-                            label='Status' 
-                            options={options} 
-                            placeholder='Status' 
-                            id='status' 
-                            onChange={this.handleChange} /> */}
 
                             <Form.Field control={TextArea} 
                             label='Logs' 

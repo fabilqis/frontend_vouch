@@ -7,7 +7,6 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import CardNavbar from '../Components/CardNavbar'
 import Home from '../Home'
 import CardAddTicket from '../Components/CardAddTicket'
-import CardDetail from '../Components/CardDetail'
 import CardEditLog from '../Components/CardEditLog'
 import CardDelete from '../Components/CardDelete'
 
@@ -28,9 +27,8 @@ class App extends Component {
                             <div>
                                 <Switch>
                                     <Route exact path="/" component={Home}/>
-                                    <Route exact path="/create" component={CardAddTicket}/>
-                                    <Route path="/detail:id" component={CardDetail}/>
-                                    <Route path="/editlogs" component={CardEditLog}/>
+                                    <Route path="/create" component={CardAddTicket}/>
+                                    <Route path="/edit" component={CardEditLog}/>
                                     <Route path="/delete" component={CardDelete}/>
                                 </Switch>
                             </div>
