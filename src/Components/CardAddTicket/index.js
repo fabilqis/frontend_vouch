@@ -90,7 +90,8 @@ class CardAddTicket extends React.Component{
                     <Card.Content>
                         <Form onSubmit={this.handleSubmit.bind(this)}>
                             <Form.Field control={Input} 
-                            label='Name' 
+                            label='Name'
+                            name= 'name' 
                             placeholder='Ticket Name' 
                             id='name' 
                             onChange={this.handleChange.bind(this)}/>
@@ -98,6 +99,7 @@ class CardAddTicket extends React.Component{
                             <Form.Field control={Input} 
                             label='Status' 
                             placeholder='Ticket Status' 
+                            name = 'status'
                             id='status' 
                             onChange={this.handleChange.bind(this)}/>
 
@@ -111,7 +113,8 @@ class CardAddTicket extends React.Component{
                             <Form.Field control={TextArea} 
                             label='Logs' 
                             placeholder='Put text here...' 
-                            id='logs' 
+                            id='logs'
+                            name ='logs' 
                             onChange={this.handleChange.bind(this)}/>
 
                             <Form.Field control={Button} 

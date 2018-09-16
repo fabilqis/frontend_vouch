@@ -28,7 +28,7 @@ class App extends Component {
                             <div>
                                 <Switch>
                                     <Route exact path="/" component={Home}/>
-                                    <Route path="/create" component={CardAddTicket}/>
+                                    <Route exact path="/create" component={CardAddTicket}/>
                                     <Route path="/detail:id" component={CardDetail}/>
                                     <Route path="/editlogs" component={CardEditLog}/>
                                     <Route path="/delete" component={CardDelete}/>
