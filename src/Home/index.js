@@ -21,7 +21,7 @@ class Home extends React.Component{
         })
     }
 
-    UNSAFE_componentWillMount() {
+    componentDidMount() {
         request
             .get('/tickets')
             .then(response => {
