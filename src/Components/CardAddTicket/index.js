@@ -22,6 +22,12 @@ const options = [
     { key: 'Open', text: 'Open', value: 'Open' },
 ]
 
+const styles = {
+    margins : {
+        marginTop : '2rem'
+    }
+}
+
 class CardAddTicket extends React.Component{
     static get propTypes(){
         return{
@@ -85,7 +91,7 @@ class CardAddTicket extends React.Component{
         } else {
             console.log('Isi card :', this.props.addCard)
             return(
-                <Card centered >
+                <Card centered style={styles.margins}>
                     <Card.Content header="Add Ticket"/>
                     <Card.Content>
                         <Form onSubmit={this.handleSubmit.bind(this)}>

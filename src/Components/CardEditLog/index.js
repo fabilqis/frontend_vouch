@@ -17,6 +17,12 @@ const mapStateToProps = state => {
     }
 }
 
+const styles = {
+    margins : {
+        marginTop : '2rem'
+    }
+}
+
 class CardEditLog extends React.Component{
     static get propTypes(){
         return{
@@ -77,7 +83,7 @@ class CardEditLog extends React.Component{
         } else {
             console.log('Isi card :', this.props.editCard)
         return(
-            <Card centered>
+            <Card centered style={styles.margins}>
                 <Card.Content header="Edit Log"/>
                 <Card.Content>
                     <Form onSubmit={this.handleSubmit.bind(this)}>

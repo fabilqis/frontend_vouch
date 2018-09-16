@@ -17,6 +17,12 @@ const mapStateToProps = state => {
     }
 }
 
+const styles = {
+    margins : {
+        marginTop : '2rem'
+    }
+}
+
 class CardDelete extends React.Component{
     static get propTypes(){
         return{
@@ -71,13 +77,13 @@ class CardDelete extends React.Component{
         } else {
             console.log('Isi card :', this.props.deleteCard)
         return(
-            <Card centered>
+            <Card centered style={styles.margins}>
                 <Card.Content header="Delete Card"/>
                 <Card.Content>
                     <Form onSubmit={this.handleSubmit.bind(this)}>
 
                     <Form.Field control={Input} 
-                            label='Type Ticket ID'
+                            label='Type Ticket ID (e.g : 5b9e16c4d31382002bd9xxxx)'
                             name= 'id' 
                             placeholder='Type Ticket ID' 
                             id='id' 
