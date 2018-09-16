@@ -8,7 +8,7 @@ import CardButton from '../Components/CardAddTicketButton'
 
 const request = axios.create({
     baseURL: 'http://backendvouch.herokuapp.com/' || 'http://localhost:3000',
-    timeout: 50000,
+    timeout: 10000,
     headers: { Authorization: '' }
 })
 
