@@ -3,7 +3,7 @@ import axios from 'axios'
 import propTypes from 'prop-types'
 import { BrowserRouter as Redirect} from 'react-router-dom'
 import { connect } from 'react-redux'
-import { Card, Button, Form, TextArea, Select, Input} from 'semantic-ui-react'
+import { Card, Button, Form, TextArea, Input} from 'semantic-ui-react'
 
 const request = axios.create({
     baseURL : 'https://backendvouch.herokuapp.com/' || 'http://localhost:3000',
@@ -16,13 +16,6 @@ const mapStateToProps = state => {
         editCard : state.details.editCard
     }
 }
-
-const options = [
-    { key: 'Open', text: 'Open', value: 'Open', name: 'Open' },
-    { key: 'Active', text: 'Active', value: 'Active', name: 'Active' },
-    { key: 'Failed', text: 'Failed', value: 'Failed', name: 'Failed' },
-    { key: 'Closed', text: 'Closed', value: 'Closed', name: 'Closed' },
-]
 
 class CardEditLog extends React.Component{
     static get propTypes(){
@@ -102,11 +95,10 @@ class CardEditLog extends React.Component{
                             id= 'logs'
                             onChange={this.handleChange.bind(this)}/>
 
-                        <Form.Field control={Select} 
-                            label='Status' 
-                            options = {options}
-                            placeholder='Ticket Status'
-                            name = 'status'
+                        <Form.Field control={Input} 
+                            label='Open / Active / Failed / Closed ? '
+                            name= 'status' 
+                            placeholder='Type Ticket Status...' 
                             id='status' 
                             onChange={this.handleChange.bind(this)}/>
 
