@@ -22,6 +22,16 @@ const reducer = (state = initialState, action) => {
         }
     }
 
+    case 'DELETE_CARD' : {
+        return {
+            ...state,
+            details: {
+                ...state.details,
+                deleteCard: action.payload
+            }
+        }
+    }
+
     case 'FILTERED_CARD' : {
         return {
             details: {
