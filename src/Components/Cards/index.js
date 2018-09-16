@@ -4,13 +4,6 @@ import { Button, Card } from 'semantic-ui-react'
 import '../../../node_modules/sweetalert/dist/sweetalert.css'
 
 class Cards extends React.Component{
-    constructor(props){
-        super(props)
-        this.state = {
-            show: false
-        }
-    }
-
     render(){
         return (
             <Card centered>
@@ -24,10 +17,8 @@ class Cards extends React.Component{
                 </Card.Content>
                 <Card.Content extra>
                     <div className="ui two buttons">
-                        <Button color='teal' primary><Link style={{ color:'white' }}to='/detail:id'>Detail </Link></Button>
-                        <Link to='/delete'><Button color='red'>
-                         Delete
-                        </Button></Link>
+                        <Button color='teal' primary><Link style={{ color:'white'}} to='/detail:id'>Detail </Link></Button>
+                        <Button color='red'> <Link style={{ color:'white'}} to='/delete'> Delete</Link></Button>
                     </div>
                 </Card.Content>
             </Card>
